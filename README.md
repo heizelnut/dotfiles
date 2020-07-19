@@ -3,7 +3,7 @@ To use them, bleed your fingers and copy-paste files by hand. Literally, I canno
 
 ## Pimp my GAHNOO/Linux, what's on there?
 
- - [xinit](.xinit) config to start all the daemons and dwm
+ - [xinit](.xinitrc) config to start all the daemons and dwm
  - [zsh](.zshrc) config with some environment variables and PS1 prompt
  - [scripts](.local/scripts) with eventually some [assets](.local/assets) for my status bar and zsh plugins
  - [config files](.config) for all the other stuff
