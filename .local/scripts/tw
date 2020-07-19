@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mpv --osc=no --ytdl-format=720p https://twitch.tv/$1

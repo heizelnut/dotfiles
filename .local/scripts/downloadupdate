@@ -1,0 +1,13 @@
+#!/bin/sh
+
+notify() {
+	display="X0"
+	user="el"
+	uid=$(id -u $user)
+
+	sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus dunstify --replace=25 -t 5000 "$@"
+}
+
+notify "📦 Fetching new bytes for you" "Downloading the pacman update..."
+
+pacman -Syuw --noconfirm && notify "💽 Moved some bits" "System update downloaded. Remember to give a good <b>pacman -Syu</b>." || notify "⚡ yieks! Bits will not dance" "Could not update the system; something gone wrong."

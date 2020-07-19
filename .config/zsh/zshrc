@@ -1,0 +1,33 @@
+# prompt
+nl=$'\n'
+PROMPT="%F{blue}%n%f at %F{green}%m%f in %F{yellow}%~%f ${nl} %B%F{red}▷%b%f "
+
+# bind vim keys
+bindkey -v
+
+# defaults
+EDITOR='/bin/nvim' 
+BROWSER='/bin/qutebrowser'
+TERMINAL='/bin/alacritty'
+XDG_DOWNLOAD_DIR="$HOME/dl"
+
+# ncurses apps
+lf="$TERM -t files -e lf"
+ncmpcpp="$TERM -t music -e ncmpcpp"
+nctelegram="$TERM -t Telegram -e nctelegram"
+
+# path
+PATH=$PATH:~/.local/scripts # personal scripts
+PATH=$PATH:~/.local/scripts/status
+PATH=$PATH:~/.local/bin # installed binaries
+
+# aliases
+alias s='doas'
+alias v='nvim'
+alias e='exit'
+alias c='clear'
+alias ls='ls --color'
+alias la='ls -la'
+
+# start xorg on /dev/tty1
+[ $(tty) = "/dev/tty1" ] && startx

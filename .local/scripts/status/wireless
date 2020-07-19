@@ -1,0 +1,8 @@
+#!/bin/sh
+
+state=$(iwctl station wlan0 show | grep State | awk '{ printf $2 }')
+
+[ $state = "connected" ] && network="$(iwctl station wlan0 show | grep network | awk '{ printf $3 }')" || network="disconnected"
+
+echo $network
+

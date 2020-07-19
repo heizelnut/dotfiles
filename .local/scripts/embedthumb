@@ -1,0 +1,7 @@
+#!/bin/sh
+
+wget "$1" -O cover.jpg
+
+tageditor set cover=cover.jpg --files *.opus
+
+rm *.bak

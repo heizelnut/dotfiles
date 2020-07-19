@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# check active http and https connections
+ss | grep http. | wc -l

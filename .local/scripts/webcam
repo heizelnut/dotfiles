@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# set camera device
+camera='/dev/video0'
+
+mpv --osc=no --untimed --profile=low-latency --demuxer-lavf-format=video4linux2 av://v4l2:$camera

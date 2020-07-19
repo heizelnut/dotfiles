@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# keyboard
+setxkbmap it
+# disable caps lock and make it Esc
+setxkbmap -option caps:escape
+
+# drive automount
+pkill udiskie
+udiskie &
+
+# prevents Xorg shutdown
+while true; do
+
+	# statusbar
+	killall dwmblocks
+	dwmblocks &
+
+	# notification daemon
+	killall dunst
+	dunst &
+	
+	# start compositor
+	#killall picom
+	#picom &
+
+	# music daemon
+	killall mpd
+	mpd 
+
+	# keyboard daemon
+	killall sxhkd
+	sxhkd &
+
+	# music notification
+	killall mpd-notification 
+	mpd-notification &
+
+	# dwm
+	dwm 2> ~/.cache/dwm.log &
+
+	# background
+	#xwallpaper --zoom ~/pics/hyperreal.png
+	xsetroot -solid "#000000"
+
+	# wait for dwm to end/crash to restart
+	wait $!
+done
+
+# this line's for ufetch
+# dwm

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+youtube-dl -x -f bestaudio -o '%(playlist_index)s:%(title)s.%(ext)s' $1

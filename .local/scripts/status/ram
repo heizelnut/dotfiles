@@ -1,0 +1,5 @@
+#!/bin/sh
+
+usage=$(free -m | grep Mem | awk '{ printf ($3/($2))*100 }')
+
+echo "${usage%%.*}%"

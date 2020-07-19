@@ -1,0 +1,11 @@
+#!/bin/sh
+
+sink=$(pacmd list-sinks | grep -A 15 '* index')
+
+value="$(echo "${sink}" | awk '/volume: front/{ print $5 }' | sed 's/[%|,]//g')"
+
+mute="$(echo "${sink}" | awk '/muted:/{ print $2 }')"
+
+[ "$mute" = "yes" ] && icon="[M] "
+
+echo "$icon$value%"

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+value="$(light -G)"
+echo "${value%%.*}%"
