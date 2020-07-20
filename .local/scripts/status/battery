@@ -2,8 +2,7 @@
 
 value="$(cat /sys/class/power_supply/BAT0/capacity)"
 status="$(cat /sys/class/power_supply/BAT0/status)"
-value=8
-status="Charging"
+
 
 danger="$(expr $value \<= 10)"
 level="$(expr $value / 25)"
