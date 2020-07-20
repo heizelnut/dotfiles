@@ -2,6 +2,8 @@
 
 value="$(cat /sys/class/power_supply/BAT0/capacity)"
 status="$(cat /sys/class/power_supply/BAT0/status)"
+value=8
+status="Charging"
 
 danger="$(expr $value \<= 10)"
 level="$(expr $value / 25)"
@@ -28,7 +30,7 @@ esac
 [ $danger = 1 ] && [ "$status" = "Discharging" ] && {
 	dunstify --replace=23 -u CRITICAL "⚠️ Battery is low" "Plug me to the f-ing wall you moron I'm dying";
 	icon="\uf244 \uf12a";
-}
+} || dunstify --close=23
 
 [ "$status" = "Charging" ] && icon="$icon \uf0e7"
 
