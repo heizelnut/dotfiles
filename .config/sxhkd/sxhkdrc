@@ -1,6 +1,9 @@
 # screenshot
 alt + shift s
-	scrot -a $(slop -c 0.9,0.9,0.9,0.8 -f '%x,%y,%w,%h') -o ~/pics/last.png && notify-send "Picture saved!"
+	screenshot
+
+alt + s
+	screenshot -f
 
 # volume controls
 XF86AudioMute
