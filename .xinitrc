@@ -34,5 +34,8 @@ mpd && mpd-notification &
 killall sxhkd
 sxhkd &
 
+# set screen temperature
+color 4500 #K
+
 # dwm
 exec dwm 2> ~/.cache/dwm.log
