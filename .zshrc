@@ -21,6 +21,9 @@ PATH=$PATH:~/.local/scripts # personal scripts
 PATH=$PATH:~/.local/scripts/status
 PATH=$PATH:~/.local/bin # installed binaries
 
+# gpg signing
+export GPG_TTY="$(tty)"
+
 # lf icons
 export LF_ICONS="di=📁:\
 fi=📃:\
