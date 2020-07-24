@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require ffmpeg || exit 1
+
 printf "🎹 Album Title: "
 read album
 

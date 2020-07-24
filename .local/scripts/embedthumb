@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require wget tageditor || exit 1
+
 wget "$1" -O cover.jpg
 
 tageditor set cover=cover.jpg --files *.opus

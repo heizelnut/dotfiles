@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require pacmd || exit 1
+
 sink=$(pacmd list-sinks | grep -A 15 '* index')
 
 value="$(echo "${sink}" | awk '/volume: front/{ print $5 }' | sed 's/[%|,]//g')"

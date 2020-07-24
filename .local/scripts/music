@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require mpc dunstify || exit 1
+
 nid=30
 delta=${2:-5}
 

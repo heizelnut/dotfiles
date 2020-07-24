@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require scrot slop || exit 1
+
 [ "$1" = "-f" ] && scrot -o ~/pics/screenshot.png && notify-send "📷 Picture saved!" && exit
 
 sel="$(slop -c 0.9,0.9,0.9,0.8 -f '%x,%y,%w,%h')"

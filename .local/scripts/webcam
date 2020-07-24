@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require mpv || exit 1
+
 # set camera device
 camera='/dev/video0'
 

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dependencies
+require light dwmblocks || exit 1
+
 delta=${2:-5}
 
 [ $1 = "up" ] && light -A $delta

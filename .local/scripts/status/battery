@@ -1,8 +1,10 @@
 #!/bin/sh
 
+# dependencies
+require dunstify || exit 1
+
 value="$(cat /sys/class/power_supply/BAT0/capacity)"
 status="$(cat /sys/class/power_supply/BAT0/status)"
-
 
 danger="$(expr $value \<= 10)"
 level="$(expr $value / 25)"

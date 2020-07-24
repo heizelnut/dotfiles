@@ -1,0 +1,12 @@
+#!/bin/sh
+
+missing=""
+
+for program in "$@"
+do
+	command -v "$program" > /dev/null || missing="$missing $program"
+done
+
+[ "$missing" = "" ] && exit 0
+
+echo "📚 Missing dependencies:$missing" >&2 && exit 1

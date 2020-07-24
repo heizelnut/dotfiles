@@ -1,3 +1,6 @@
 #!/bin/sh
 
+# dependencies
+require youtube-dl || exit 1
+
 youtube-dl -x -f bestaudio -o '%(playlist_index)s:%(title)s.%(ext)s' $1
