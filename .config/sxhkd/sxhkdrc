@@ -46,9 +46,9 @@ shift XF86AudioLowerVolume
 
 # browser
 alt + shift w
-	notify-send -u LOW -t 2000 "Starting browser..." && /bin/qutebrowser
+	notify-send -u LOW -t 2000 "Starting browser..." && $BROWSER
 
 # music player
 alt + shift m
-	alacritty -e "ncmpcpp"
+	$TERMINAL -e ncmpcpp
 
