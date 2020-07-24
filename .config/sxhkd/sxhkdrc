@@ -37,10 +37,10 @@ XF86AudioNext
 	mpc next
 
 shift XF86AudioRaiseVolume
-	mpc volume +5 && dunstify --replace=30 "🎵 $(mpc volume)"
+	music up
 
 shift XF86AudioLowerVolume
-	mpc volume -5 && dunstify --replace=30 "🎵 $(mpc volume)"
+	music down
 
 # apps
 
