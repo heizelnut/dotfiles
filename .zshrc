@@ -6,15 +6,14 @@ PROMPT="%F{blue}%n%f at %F{green}%m%f in %F{yellow}%~%f ${nl} %B%F{red}▷%b%f "
 source ~/.local/assets/zsh/zsh-vim-mode.plugin.zsh
 
 # defaults
-EDITOR='/bin/nvim' 
-BROWSER='/bin/qutebrowser'
-TERMINAL='/bin/alacritty'
-XDG_DOWNLOAD_DIR="$HOME/dl"
+export EDITOR='/bin/nvim' 
+export BROWSER='/bin/qutebrowser'
+export TERMINAL='/bin/alacritty'
+export XDG_DOWNLOAD_DIR="$HOME/dl"
 
 # ncurses apps
-lf="$TERMINAL -t files -e lf"
-ncmpcpp="$TERMINAL -t music -e ncmpcpp"
-nctelegram="$TERMINAL -t Telegram -e nctelegram"
+alias lf="$TERMINAL -t files -e lf"
+alias ncmpcpp="$TERMINAL -t music -e ncmpcpp"
 
 # path
 PATH=$PATH:~/.local/scripts # personal scripts
@@ -23,6 +22,9 @@ PATH=$PATH:~/.local/bin # installed binaries
 
 # gpg signing
 export GPG_TTY="$(tty)"
+
+# wget hsts
+alias wget="wget --hsts-file=~/.local/share/wget-hsts"
 
 # lf icons
 export LF_ICONS="di=📁:\
