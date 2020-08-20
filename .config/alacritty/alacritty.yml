@@ -248,33 +248,33 @@ font:
   #
   #indexed_colors: []
 # Colors (Nord)
-colors:
-  # Default colors
-  primary:
-    background: '0x000000'
-    foreground: '0xD8DEE9'
-
-  # Normal colors
-  normal:
-    black:   '0x3B4252'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x88C0D0'
-    white:   '0xE5E9F0'
-
-  # Bright colors
-  bright:
-    black:   '0x4C566A'
-    red:     '0xBF616A'
-    green:   '0xA3BE8C'
-    yellow:  '0xEBCB8B'
-    blue:    '0x81A1C1'
-    magenta: '0xB48EAD'
-    cyan:    '0x8FBCBB'
-    white:   '0xECEFF4'
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x000000'
+#    foreground: '0xD8DEE9'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x3B4252'
+#    red:     '0xBF616A'
+#    green:   '0xA3BE8C'
+#    yellow:  '0xEBCB8B'
+#    blue:    '0x81A1C1'
+#    magenta: '0xB48EAD'
+#    cyan:    '0x88C0D0'
+#    white:   '0xE5E9F0'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x4C566A'
+#    red:     '0xBF616A'
+#    green:   '0xA3BE8C'
+#    yellow:  '0xEBCB8B'
+#    blue:    '0x81A1C1'
+#    magenta: '0xB48EAD'
+#    cyan:    '0x8FBCBB'
+#    white:   '0xECEFF4'
 
 # Visual Bell
 #
@@ -620,3 +620,37 @@ schemes:
                         magenta: '#b200ed'
                         cyan: '#d100d3'
                         white: '#9b53aa'
+        grayscale: &mono
+                primary:
+                        foreground: '#EEEEEE'
+                        background: '#000000'
+
+                        black: '#000000'
+                        red: '#222222'
+                        green: '#444444'
+                        yellow: '#666666'
+                        blue: '#888888'
+                        magenta: '#AAAAAA'
+                        cyan: '#CCCCCC'
+                        white: '#EEEEEE'
+                normal:
+                        black: '#000000'
+                        red: '#222222'
+                        green: '#444444'
+                        yellow: '#666666'
+                        blue: '#888888'
+                        magenta: '#AAAAAA'
+                        cyan: '#CCCCCC'
+                        white: '#EEEEEE'
+              
+                bright:
+                        black: '#111111'
+                        red: '#333333'
+                        green: '#555555'
+                        yellow: '#777777'
+                        blue: '#999999'
+                        magenta: '#BBBBBB'
+                        cyan: '#DDDDDD'
+                        white: '#FFFFFF'
+
+colors: *mono

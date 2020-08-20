@@ -1,6 +1,6 @@
 # prompt
 nl=$'\n'
-PROMPT="%F{blue}%n%f at %F{green}%m%f in %F{yellow}%~%f ${nl} %B%F{red}▷%b%f "
+PROMPT="%F{blue}%n%f at %F{magenta}%m%f in %F{yellow}%~%f ${nl} %B%f▷%b "
 
 # use vim keys
 source ~/.local/assets/zsh/zsh-vim-mode.plugin.zsh
