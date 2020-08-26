@@ -5,6 +5,14 @@ alt + shift s
 alt + s
 	screenshot -f
 
+# screencast
+alt + shift r
+	screenrec
+alt + r
+	screenrec -f
+ctrl + alt + r
+	screenrec -s
+
 # volume controls
 XF86AudioMute
 	vol mute

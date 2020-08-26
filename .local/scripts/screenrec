@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# dependencies
+require slop ffmpeg || exit 1
+
+recordScreen() {
+	ffmpeg -y -video_size $1 -framerate 25 -f x11grab -i :0.0+$2 ~/vids/screencast.mp4 || notify-send "📹 Screencast saved!"
+}
+
+[ "$1" = "-s" ] && exec kill "$(pgrep -f 'ffmpeg .* -f x11grab')"
+[ "$1" = "-f" ] && recordScreen "$(xdpyinfo | awk '/dimensions:/ { print $2 }')" '' && exit
+
+sel="$(slop -c 0.9,0.9,0.9,0.8 -f '%x,%y %wx%h')"
+
+[ "$sel" = "" ] && exit
+
+offset=${sel% *}
+size=${sel#* }
+
+recordScreen $size $offset
