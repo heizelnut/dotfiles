@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# dependencies
+require dunstify dunst mpv youtube-dl || exit 1
+
+# notification id
+nid=56
+
+link="$(xclip -sel primary -o)"
+
+dunstify --replace=$nid "📼 Opening $link..."
+
+sources="$(youtube-dl -F $link)"
+[ "$sources" = "" ] && dunstify -t 1500 --replace=$nid "❌ Cannot open link." && exit 1
+
+mpv "ytdl://$link" --ytdl-raw-options=format=best $@ &

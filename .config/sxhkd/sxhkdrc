@@ -13,6 +13,10 @@ alt + r
 ctrl + alt + r
 	screenrec -s
 
+# open links in mpv
+ctrl + shift o
+	mpvopen
+
 # volume controls
 XF86AudioMute
 	vol mute
