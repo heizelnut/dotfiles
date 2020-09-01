@@ -2,4 +2,4 @@
 
 isrec="$(screenrec -c)"
 
-[ "$isrec" = "yes" ] && env printf "\uf03d REC" && exit
+[ "$isrec" = "yes" ] && env printf "\uf192 REC" && exit
