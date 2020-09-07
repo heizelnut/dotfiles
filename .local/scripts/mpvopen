@@ -13,4 +13,4 @@ dunstify --replace=$nid "📼 Opening $link..."
 sources="$(youtube-dl -F $link)"
 [ "$sources" = "" ] && dunstify -t 1500 --replace=$nid "❌ Cannot open link." && exit 1
 
-mpv "ytdl://$link" --ytdl-raw-options=format=best $@ &
+mpv "ytdl://$link" --force-window --ytdl-raw-options=format=best $@ &
