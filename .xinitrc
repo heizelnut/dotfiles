@@ -23,8 +23,8 @@ location="$(whereis askpass)"
 export SUDO_ASKPASS="${location##* }"
 
 # start compositor
-killall picom
-picom &
+# killall picom
+# picom &
 
 # music daemon
 killall mpd-notification && killall mpd
