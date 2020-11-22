@@ -10,7 +10,6 @@ case "$filext" in
 	c) cc "$file" -o "$filename" ;;
 	cpp) g++ "$file" -o "$filename" ;;
 	go) go build ;;
-	h) sudo make install ;;
+	h) sudo make install && make clean ;;
 	ms) groff -ms -Tpdf > "$filename".pdf ;;
-	*) head -n1 "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac

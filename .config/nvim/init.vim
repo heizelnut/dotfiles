@@ -11,7 +11,11 @@ set path+=**
 set wildmenu
 
 " set relative line number
+set number
 set relativenumber
+
+" autocompile
+:autocmd BufWritePost * !compiler %
 
 " vim plugins
 call plug#begin('~/.config/nvim/plugged')
