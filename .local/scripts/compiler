@@ -1,0 +1,16 @@
+#!/bin/sh
+
+file=$(readlink -f "$1")
+
+directory=${file%/*}
+filename=${file%.*}
+filext=${file##*.}
+
+case "$filext" in
+	c) cc "$file" -o "$filename" ;;
+	cpp) g++ "$file" -o "$filename" ;;
+	go) go build ;;
+	h) sudo make install ;;
+	ms) groff -ms -Tpdf > "$filename".pdf ;;
+	*) head -n1 "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+esac
