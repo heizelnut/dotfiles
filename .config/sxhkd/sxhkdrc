@@ -1,16 +1,20 @@
 # screenshot
-alt + shift s
+super + shift s
 	screenshot
 
-alt + s
+super + s
 	screenshot -f
 
+# monitor toggle
+XF86TouchpadToggle
+	monitor
+
 # screencast
-alt + shift r
+super + shift r
 	screenrec
-alt + r
+super + r
 	screenrec -f
-ctrl + alt + r
+ctrl + super + r
 	screenrec -s
 
 # open links in mpv
@@ -35,7 +39,7 @@ XF86MonBrightnessDown
 	lum down
 
 # emoji
-ctrl + comma
+XF86Calculator
 	emoji
 
 # music
@@ -57,10 +61,12 @@ shift XF86AudioLowerVolume
 # apps
 
 # browser
-alt + shift w
-	notify-send -u LOW -t 2000 "Starting browser..." && $BROWSER
+super + shift w
+	notify-send -t 2000 "Starting browser..." && $BROWSER
 
 # music player
-alt + shift m
-	$TERMINAL -e ncmpcpp
+super + shift m
+	$TERMINAL -t music -e ncmpcpp
 
+super + shift n
+	$TERMINAL -t rss -e neix

@@ -11,5 +11,5 @@ case "$filext" in
 	cpp) g++ "$file" -o "$filename" ;;
 	go) go build ;;
 	h) sudo make install && make clean ;;
-	ms) groff -ms -Tpdf > "$filename".pdf ;;
+	ms) groff -Kutf8 -ms "$file" -Tpdf > "$filename".pdf ;;
 esac

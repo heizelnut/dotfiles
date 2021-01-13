@@ -23,8 +23,8 @@ location="$(whereis askpass)"
 export SUDO_ASKPASS="${location##* }"
 
 # start compositor
-# killall picom
-# picom &
+#killall picom
+#picom &
 
 # music daemon
 killall mpd-notification && killall mpd
@@ -37,8 +37,15 @@ sxhkd &
 # set screen temperature
 color 4500 #K
 
+# detect any monitors
+monitor
+
+# open links with mpv
+killall play-with-mpv
+play-with-mpv &
+
 # set background
-xwallpaper --zoom ~/art/prisoner.png
+#xwallpaper --zoom ~/art/prisoner.png
 
 # dwm
 exec dwm 2> ~/.cache/dwm.log

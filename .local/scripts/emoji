@@ -3,7 +3,7 @@
 # dependencies
 require dmenu xclip || exit 1
 
-selected="$(cut -d ';' -f1 ~/.local/assets/emoji | dmenu -i -l 10 | sed 's/ .*//')"
+selected="$(cut -d ';' -f1 ~/.local/assets/emoji | dmenu -fn "$SL_FONT" -i -l 10 | sed 's/ .*//')"
 
 [ -z "$selected" ] && exit
 

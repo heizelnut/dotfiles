@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# dependencies
+require mpv sxiv zathura alacritty xdg-open || exit 1
+
+case $1 in
+	*.mp3|*.flac|*.wav)
+		mpv --no-video "$1"
+        ;;
+
+        *.mp4|*.mkv|*.webm|*.avi|*.opus)
+        	mpv "$1"
+        ;;
+
+        *.png|*.gif|*.jpg|*.jpe|*.jpeg)
+        	sxiv "$1"
+        ;;
+
+        *.pdf)
+        	zathura "$1"
+        ;;
+	
+	http*youtu*|http*twitch.tv*|http*videos.lukesmith.xyz*)
+		mpv "$1"
+	
+	;;
+	
+	http*redd*)
+		rtv-gui $1
+
+	;;
+
+        # all other files
+        *)
+        	xdg-open "$1"
+        ;;
+    esac
