@@ -1,0 +1,11 @@
+#!/bin/sh
+
+[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] && exit 1
+
+branch=$(git branch --show-current)
+badges=""
+
+[ "$(git diff --name-only)" = "" ] || badges="$badges +diff"
+[ "$(git diff --name-only --cached)" = "" ] || badges="$badges +stag"
+
+printf "[$branch$badges]"

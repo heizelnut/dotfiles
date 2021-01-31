@@ -1,10 +1,3 @@
-# prompt
-nl=$'\n'
-PROMPT="%F{blue}%n%f at %F{magenta}%m%f in %F{yellow}%~%f ${nl} %B%f▷%b "
-
-# use vim keys
-source ~/.local/assets/zsh/zsh-vim-mode.plugin.zsh
-
 # include secrets
 source .secrets
 
@@ -25,6 +18,11 @@ PATH=$PATH:~/.local/scripts # personal scripts
 PATH=$PATH:~/.local/scripts/status
 PATH=$PATH:~/.local/bin # installed binaries
 PATH=$PATH:~/.cargo/bin
+
+# prompt
+nl=$'\n'
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%n%f at %F{magenta}%m%f in %F{yellow}%~%f %B%F{green}$(gstat)%f${nl} ▷%b '
 
 # gpg signing
 export GPG_TTY="$(tty)"
