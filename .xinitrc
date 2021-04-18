@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# keyboard
-setxkbmap it
+# configure monitor & keyboard at once
+dock
 
-# disable caps lock and make it Esc
-setxkbmap -option caps:escape
+# make webcam look pretty
+v4l2-ctl --set-ctrl sharpness=0
 
 # drive automount
 pkill udiskie
@@ -23,8 +23,8 @@ location="$(whereis askpass)"
 export SUDO_ASKPASS="${location##* }"
 
 # start compositor
-#killall picom
-#picom &
+killall picom
+picom &
 
 # music daemon
 killall mpd-notification && killall mpd
@@ -37,15 +37,17 @@ sxhkd &
 # set screen temperature
 color 4500 #K
 
-# detect any monitors
-monitor
+# reload pulseaudio
+pulseaudio -k
 
 # open links with mpv
 killall play-with-mpv
 play-with-mpv &
 
 # set background
-#xwallpaper --zoom ~/art/prisoner.png
+xwallpaper --zoom ~/art/prisoner.png
+
+xrdb ~/.Xresources
 
 # dwm
 exec dwm 2> ~/.cache/dwm.log

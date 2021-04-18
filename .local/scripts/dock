@@ -1,0 +1,12 @@
+#!/bin/sh
+
+require monitor || exit 1;
+
+# configure monitor output
+monitor
+
+# keyboard
+setxkbmap it
+
+# disable caps lock and make it Esc
+setxkbmap -option caps:escape

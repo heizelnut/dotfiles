@@ -1,11 +1,15 @@
 #!/bin/sh
 
-# dependencies
-require iwctl || exit 1
+ETH='enp2s0f2'
+WLN='wlan0'
 
-state=$(iwctl station wlan0 show | grep State | awk '{ printf $2 }')
+ip_eth="$(ip addr show $ETH | grep inet | awk '{ print $2 }')"
+ip_wln="$(ip addr show $WLN | grep inet | awk '{ print $2 }')"
 
-[ $state = "connected" ] && network="$(iwctl station wlan0 show | grep network | awk '{$1=$2=""; print}' | xargs)" || network="disconnected"
+ip_eth=${ip_eth%/*}
+ip_wln=${ip_wln%/*}
 
-echo "$network"
+[ "$ip_eth" = "" ] && [ "$ip_wln" = "" ] && echo "disconnected" && exit
 
+[ "$ip_eth" = "" ] && echo "$ip_wln" && exit
+[ "$ip_wln" = "" ] && echo "$ip_eth" && exit
