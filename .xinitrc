@@ -45,7 +45,7 @@ killall play-with-mpv
 play-with-mpv &
 
 # set background
-xwallpaper --zoom ~/art/prisoner.png
+xwallpaper --zoom ~/art/lorenz/wallpaper.png
 
 xrdb ~/.Xresources
 

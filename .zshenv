@@ -47,5 +47,9 @@ alias e='exit'
 alias c='clear'
 alias ls='ls --color'
 alias la='ls -la'
+alias cm='compiler'
+alias o='opener'
+
+alias serve='python -m http.server 8080'
 
 alias lmms='lmms -c ~/.config/lmms/.lmmsrc.xml'
