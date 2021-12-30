@@ -1,8 +1,7 @@
-" Thanks to https://youtu.be/XA2WjJbmmoM 🥰
-
 " disable backwards compatibility
 set nocompatible
 
+" enable hidden buffers
 set hidden
 
 " enable syntax highlighting
@@ -108,6 +107,14 @@ nnoremap <C-l> :call TogglePresentationMode()<Cr>:<Esc>
 
 " templates
 au BufNewFile * silent! 0r ~/.config/nvim/templates/skeleton.%:e
+
+" download plugin manager if not present
+let pluggedLocation='~/.config/nvim/autoload/plug.vim'
+if (glob(pluggedLocation) == "")
+	let url="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+	execute "!curl -fLo " .. pluggedLocation .. " --create-dirs " .. url
+endif
+
 " vim plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
