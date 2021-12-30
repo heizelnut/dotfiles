@@ -1,0 +1,6 @@
+#!/bin/sh
+
+adjective="$(cat ~/.local/assets/names | grep '^a' | shuf | cut -d' ' -f 2 | sed 1q)"
+name="$(cat ~/.local/assets/names | grep '^n' | shuf | cut -d' ' -f 2 | sed 1q)"
+
+echo "$adjective-$name"

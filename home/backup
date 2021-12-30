@@ -1,0 +1,14 @@
+#!/bin/sh
+
+APPLY_SCRIPT='apply'
+BACKUP_SCRIPT='backup'
+
+files="$(find -type f \
+	| grep -v "^\./$APPLY_SCRIPT$" \
+	| grep -v "^\./$BACKUP_SCRIPT$" \
+	| sed 's|^\./||g')"
+
+for f in $files
+do
+	cp $HOME/$f $f
+done

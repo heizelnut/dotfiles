@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# dependencies
+require light dunstify sb || exit 1
+
+delta=${2:-5}
+
+[ "$1" = "up" ] && light -A $delta
+[ "$1" = "down" ] && light -U $delta
+
+dunstify --replace=85 -t 500 -h int:value:$(sb brightness -v) "🔆 brightness"

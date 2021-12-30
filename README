@@ -1,9 +1,10 @@
-dotto files
-===========
-to use them, bleed your fingers and copy-paste files by hand.
+dotfiles
+========
+to use them, see the Makefile
 
 what's on there?
  + .xinitrc config to start all the daemons and dwm
  + .zshrc config with some environment variables (.zshenv) and PS1 prompt
  + scripts with eventually some assets (.local/assets) for my status bar
  + .config files for all the other stuff
+ + various cronjobs

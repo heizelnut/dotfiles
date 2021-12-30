@@ -1,0 +1,85 @@
+# screenshot
+super + shift s
+	screenshot
+
+super + s
+	screenshot -f
+
+super + shift l
+	slock
+
+# monitor toggle
+XF86TouchpadToggle
+	dock
+
+# screencast
+super + shift r
+	screenrec -s
+super + r
+	screenrec
+
+# plumb key
+super + shift p
+	opener $(xclip -sel primary -o)
+
+# volume controls
+XF86AudioMute
+	vol mute
+
+XF86AudioLowerVolume
+	vol down
+
+XF86AudioRaiseVolume
+	vol up 
+
+# brightness control
+XF86MonBrightnessUp
+	lum up
+
+XF86MonBrightnessDown
+	lum down
+
+# emoji
+ctrl + colon
+	emoji
+
+# notifications
+super + minus
+	dunstctl close
+
+# music
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioPrev
+	mpc prev
+
+XF86AudioNext
+	mpc next
+
+shift XF86AudioRaiseVolume
+	music up
+
+shift XF86AudioLowerVolume
+	music down
+
+# apps
+
+# browser
+super + shift w
+	$BROWSER
+
+# music player
+super + shift m
+	$TERMINAL -t music -e ncmpcpp
+
+# rss
+super + shift n
+	$TERMINAL -t rss -e sfeed_curses ~/rss/*
+
+# boomer
+super + shift b
+	boomer
+
+super + shift t
+	$TERMINAL -t toxic -e toxic

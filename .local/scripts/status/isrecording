@@ -1,5 +1,0 @@
-#!/bin/sh
-
-isrec="$(screenrec -c)"
-
-[ "$isrec" = "yes" ] && env printf "\uf192 REC" && exit

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+kunst --music_dir /home/el/music/mine --size 2000

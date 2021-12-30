@@ -1,0 +1,5 @@
+#!/bin/sh
+
+isrec="$(screenrec -c)"
+
+[ "$isrec" = "yes" ] && env printf "[RECORDING]" && exit

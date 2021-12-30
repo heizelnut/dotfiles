@@ -1,0 +1,6 @@
+[user]
+	email = upbeatshaw@protonmail.com
+	name = heizelnut
+	signingkey = 8CA4EA506FEF4CB4
+[init]
+	defaultBranch = master

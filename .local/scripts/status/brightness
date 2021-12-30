@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require light || exit 1
-
-value="$(light -G)"
-echo "${value%%.*}%"

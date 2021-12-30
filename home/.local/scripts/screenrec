@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# dependencies
+require slop ffmpeg dunstify || exit 1
+
+recordScreen() {
+	ffmpeg -y -video_size $1 -framerate 25 -f x11grab -i :0.0+$2 ~/video/screencast.avi || \
+		dunstify --replace=83 "🔄 Converting video..." && \
+		ffmpeg -y -i ~/video/screencast.avi -c:v libx264 -profile:v baseline -c:a libvo_aacenc \
+		-ar 44100 -ac 2 -b:a 128k -movflags faststart -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ~/video/screencast.mp4 && \
+		dunstify --replace=83 "📹 Screencast saved!" || dunstify --replace=83 "⚡ Conversion failed."
+}
+
+getCurrentRec() {
+	pid="$(pgrep -f 'ffmpeg .* -f x11grab')"
+	echo $pid
+}
+
+isRec() {
+	[ "$(getCurrentRec)" = "" ] && echo "no" || echo "yes"
+}
+
+[ "$1" = "-s" ] && exec kill -INT "$(getCurrentRec)"
+[ "$1" = "-f" ] && recordScreen "$(xdpyinfo | awk '/dimensions:/ { print $2 }')" '' && exit
+[ "$1" = "-c" ] && isRec && exit
+
+sel="$(slop -c 0.9,0.9,0.9,0.8 -f '%x,%y %wx%h')"
+
+[ "$sel" = "" ] && exit
+
+offset=${sel% *}
+size=${sel#* }
+
+recordScreen $size $offset

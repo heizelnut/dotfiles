@@ -1,0 +1,9 @@
+#!/bin/sh
+
+tabs="$(find *.crontab)"
+
+for t in $tabs
+do
+	user=${t%%.crontab}
+	sudo crontab -u "$user" "$t"
+done
