@@ -1,7 +1,7 @@
 # default apps
 export EDITOR='/bin/nvim' 
 export BROWSER='/usr/bin/chromium'
-export TERMINAL='/bin/alacritty'
+export TERMINAL='/usr/local/bin/st'
 
 # handy variables for scripts
 export SL_FONT='Iosevka Nerd Font Mono:size=12:style=Oblique'

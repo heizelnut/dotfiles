@@ -1,0 +1,21 @@
+#!/bin/sh
+
+out=$(ls -laH $@)
+line=$(printf "%s" "$out" | sed -n 3p)
+beforeDir=${line%..}
+amount=$(expr ${#beforeDir} + 1)
+
+first="\033[0;37m$PWD\033[0;37m"
+selection=$(echo -e "$first\n$(ls -laH --color | sed 1d)" | sif -c $amount:2)
+case "$selection" in
+	d*) isDir='yes';;
+esac
+
+target="$(printf '%s' "$selection" | awk '{ print $9 }')"
+target="$(printf '%s' $target | sed 's/\x1B\[[0-9;]*[JKmsu]//g')"
+
+[ "$target" = "" ] && exit
+[ "$target" = "." ] && exec printf "%s" "$PWD/"
+[ "$target" = ".." ] && exec printf "%s" "${PWD%/*}/"
+[ "$isDir" = 'yes' ] && fmt="%s/%s/" || fmt="%s/%s"
+printf "$fmt" "$PWD" "$target"

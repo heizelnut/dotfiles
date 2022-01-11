@@ -3,35 +3,39 @@
 # dependencies
 require mpv sxiv zathura alacritty xdg-open || exit 1
 
-case $1 in
-	*.mp3|*.flac|*.wav)
+mime="$(file --mime-type -b $1)"
+case $mime in
+	audio/*)
 		mpv --no-video "$1"
-        ;;
+	;;
 
-        *.mp4|*.mkv|*.webm|*.avi|*.opus)
-        	mpv "$1"
-        ;;
-
-        *.png|*.gif|*.jpg|*.jpe|*.jpeg)
-        	sxiv "$1"
-        ;;
-
-        *.pdf)
-        	zathura "$1"
-        ;;
-	
-	http*youtu*|http*twitch.tv*|http*videos.lukesmith.xyz*)
+	video/*)
 		mpv "$1"
-	
+    ;;
+
+	image/*)
+		sxiv "$1"
 	;;
 	
-	http*redd*)
-		rtv-gui $1
+	application/pdf)
+       	zathura "$1"
+    ;;
 
+	text/*|application/json)
+		nvim "$1"
 	;;
 
-        # all other files
-        *)
-        	xdg-open "$1"
-        ;;
-    esac
+	application/x-pie-executable)
+		gdb "$1"
+	;;
+
+	application/x*)
+		exit;
+	;;
+
+	# all other files
+	*)
+		notify-send "opening $mime file...\n"
+		xdg-open "$1"
+	;;
+esac

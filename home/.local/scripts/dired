@@ -1,0 +1,15 @@
+#!/bin/sh
+
+target="$(lse)"
+
+[ "$target" = "" ] && exit;
+
+case "$target" in
+	*/)
+		cd $target && exec dired
+	;;
+	*)
+		opener $target;
+		exec dired;
+	;;
+esac

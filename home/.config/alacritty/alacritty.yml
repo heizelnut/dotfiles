@@ -368,7 +368,7 @@ live_config_reload: true
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+  #mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -401,6 +401,12 @@ live_config_reload: true
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
     #modifiers: None
+
+hints:
+  mouse:
+    enabled: false
+    mods: Control
+    launcher: xclip -sel c
 
 # Mouse bindings
 #

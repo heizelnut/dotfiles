@@ -8,7 +8,7 @@ apply:
 	cd cron && ./apply
 
 pkg:
-	#git clone "https://aur.archlinux.org/yay.git"
-	#cd yay && makepkg -si
-	#rm -rf yay
+	git clone "https://aur.archlinux.org/yay.git"
+	cd yay && makepkg -si
+	rm -rf yay
 	yay -S `cat pkgs.txt | cut -d' ' -f 1)`
