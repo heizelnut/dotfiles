@@ -15,7 +15,7 @@ danger="$(expr $value \<= 10)"
 } || dunstify --close=23
 
 [ "$1" = "" ] && {
-	[ "$status" = "Charging" ] && icon="charging "
+	[ "$status" = "Charging" ] && icon="[C] "
 	exec printf "$icon$value%%"
 }
 [ "$1" = "-v" ] && exec echo $value
