@@ -75,7 +75,7 @@ tnoremap <Esc> <C-\><C-n>
 :vmap <C-x> :.w !sh <enter>
 
 " save file from normal mode
-:nmap <C-s> <C-k>:w<CR>
+:nmap <C-s> :w<CR>
 
 " tidy up selection to 80 cols
 :vmap Q gq
@@ -115,9 +115,14 @@ if (glob(pluggedLocation) == "")
 	execute "!curl -fLo " .. pluggedLocation .. " --create-dirs " .. url
 endif
 
+" set g:android_sdk_root = "
+" /opt/android-sdk"
+
+
 " vim plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/goyo.vim' 
+Plug 'hsanson/vim-android'
 call plug#end()

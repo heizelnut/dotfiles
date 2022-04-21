@@ -9,8 +9,11 @@ super + shift l
 	slock
 
 # monitor toggle
-XF86TouchpadToggle
+XF86ScreenSaver
 	dock
+
+XF86TouchpadToggle
+	tracktog
 
 # screencast
 super + shift r

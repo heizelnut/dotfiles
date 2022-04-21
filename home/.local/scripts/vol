@@ -4,7 +4,7 @@
 require pactl dwmblocks sb || exit 1
 
 # Sink ID
-sink=0
+sink=$(pactl get-default-sink)
 
 # interval
 delta=${2:-5}

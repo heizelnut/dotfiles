@@ -1,6 +1,3 @@
-# include secrets
-source ~/.secrets
-
 # prompt
 prompt() {
 	nl=$'\n'
@@ -12,6 +9,15 @@ prompt() {
 precmd_functions+=(prompt)
 
 setopt autocd
+
+gr() {
+	root="$(git rev-parse --show-toplevel)"
+	[ "$root" = "" ] || cd "$root"
+}
+
+alias ...=gr
+
+set -o emacs
 
 # update the standard user dirs
 xdg-user-dirs-update
