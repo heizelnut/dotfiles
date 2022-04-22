@@ -42,8 +42,7 @@ heroku-cli-bin 7.60.1-1
 httpie 2.6.0-2
 inkscape 1.1.2-2
 intel-gpu-tools 1.26-1
-intel-ucode 20220207-1
-iwd 1.26-1
+intel-ucode 20220419-1
 kirc 0.3.1-1
 kitty 0.25.0-1
 kunst-git 20210817-1
@@ -51,7 +50,7 @@ libmpd 11.8.17-5
 libreoffice-fresh 7.3.2-2
 libvirt 1:8.2.0-4
 light 1.2.2-3
-linux-headers 5.17.3.arch1-1
+linux-headers 5.17.4.arch1-1
 make 4.3-3
 man-db 2.10.2-1
 man-pages 5.13-1
@@ -64,6 +63,7 @@ neovim 0.7.0-3
 nerd-fonts-inconsolata 2.1.0-2
 net-tools 2.10-1
 netsurf 3.10-2
+networkmanager-dmenu-git r159.105507f-1
 p7zip 1:17.04-3
 patch 2.7.6-8
 picom-tryone-git 1647_Next.366.g31e5871_2021.11.25-1

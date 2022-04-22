@@ -86,3 +86,7 @@ super + shift b
 
 super + shift t
 	$TERMINAL -t toxic -e toxic
+
+# network manager
+super + shift z
+	networkmanager_dmenu -l 30

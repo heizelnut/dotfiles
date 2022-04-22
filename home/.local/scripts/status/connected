@@ -1,0 +1,17 @@
+#!/bin/sh
+
+ETH='enp2s0f2'
+WLN='wlan0'
+
+ip_eth="$(ip addr show $ETH | grep inet | awk '{ print $2 }')"
+ip_wln="$(ip addr show $WLN | grep inet | awk '{ print $2 }')"
+
+ip_eth=${ip_eth%%/*}
+ip_wln=${ip_wln%%/*}
+
+[ "$ip_wln" != "" ] && out+="wln "
+[ "$ip_eth" != "" ] && out+="eth"
+
+[ "$out" = "" ] && out="none"
+
+printf "$out"
