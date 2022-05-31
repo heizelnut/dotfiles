@@ -1,0 +1,27 @@
+#!/bin/sh
+
+read -p "🔗 Youtube Music Playlist URL: " YT_PLAYLIST
+FOLDER=""
+
+askFolder() {
+	read -p "📁 Folder Name: " folder
+	mkdir "$folder" || {
+		echo "Folder already exists" && askFolder
+	} && FOLDER="$PWD/$folder"
+}
+
+askFolder
+
+mkdir $FOLDER/tmp
+cd $FOLDER/tmp
+
+pullytplaylist $YT_PLAYLIST
+
+cd $FOLDER
+
+opustag $FOLDER/tmp/*.opus
+
+rm -r $FOLDER/tmp
+
+read -p "🎨 Art cover link [JPG]: " COVER
+embedthumb "$COVER"

@@ -1,4 +1,4 @@
 Xcursor.size: 16
-Sxiv.background: #000000
-Sxiv.foreground: #aaaaaa
+*.background: #000000
+*.foreground: #aaaaaa
 *.font: Iosevka Nerd Font:size=12

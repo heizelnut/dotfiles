@@ -14,15 +14,11 @@ read year
 
 for file in "$@"
 do
-	noext=${file%.*}
+	cleanfile=$(basename "$file")
+	noext=${cleanfile%.*}
 	track=${noext%%:*}
 	name=${noext#*:}
 	echo "🎵 $artist - $name ($track)"
-	#opusenc --artist "$artist" \
-	#	--title "$name" \
-	#	--album "$album" \
-	#	--date "$year" \
-	#	"$file" "$artist - $file"
 	ffmpeg -i "file:$file" -acodec copy \
 		-metadata title="$name" \
 		-metadata artist="$artist" \

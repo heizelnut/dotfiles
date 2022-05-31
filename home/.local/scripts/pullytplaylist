@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# dependencies
+require yt-dlp || exit 1
+
+yt-dlp -x -f bestaudio -o '%(playlist_index)s:%(title)s.%(ext)s' "$1"
+
+for f in $(find . | grep '\.m4a$')
+do
+	echo "$f => ${f%%.m4a}.opus"
+	ffmpeg -i "file:$f" "file:${f%%.m4a}.opus"
+	rm "$f"
+done
