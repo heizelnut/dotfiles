@@ -4,10 +4,15 @@
 require xrandr || exit 1
 
 internal=eDP1
-external1=HDMI1
+external1=DP1
+external2=HDMI1
 
-connected=$(xrandr | grep "$external disconnected")
+connected1=$(xrandr | grep "$external1 disconnected")
+connected2=$(xrandr | grep "$external2 disconnected")
 
-#[ "$connected" = "" ] && xrandr --output "$internal" --off --output "$external" --auto || xrandr --output "$external" --off --output "$internal" --auto
+# workstation mode
+[ "$connected1" = '' ] && [ "$connected2" = '' ] && both='yes'
 
-arandr-layout.sh
+[ "$both" = 'yes' ] && arandr-layout.sh && exit
+
+[ "$both" = '' ] && xrandr --output $external1 --off && xrandr --output $external2 --off

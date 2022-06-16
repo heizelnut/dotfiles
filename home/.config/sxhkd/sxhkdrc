@@ -90,3 +90,7 @@ super + shift t
 # network manager
 super + shift z
 	networkmanager_dmenu -l 30
+
+# shutdown menu
+super + Escape
+	shutmenu

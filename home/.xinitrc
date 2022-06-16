@@ -38,9 +38,6 @@ sxhkd &
 # set screen temperature
 color 4500 #K
 
-# reload pulseaudio
-pulseaudio -k
-
 # reload x resources database
 xrdb ~/.Xresources
 
