@@ -18,6 +18,8 @@ set shiftwidth=4
 set path+=**
 set wildmenu
 
+colorscheme zellner
+
 " delete hidden buffers
 if !exists("*DeleteHiddenBuffers") " Clear all hidden buffers when running 
 	function DeleteHiddenBuffers() " Vim with the 'hidden' option
@@ -125,4 +127,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/AutoComplPop'
 Plug 'junegunn/goyo.vim' 
 Plug 'hsanson/vim-android'
+Plug 'alexanderjeurissen/lumiere.vim'
+" Plug 'morhetz/gruvbox'
 call plug#end()

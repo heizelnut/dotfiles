@@ -1,7 +1,8 @@
 #!/bin/sh
 
-choice="$(printf 'cancel\nshutdown\nreboot\nsuspend\n' | dmenu)"
+choice="$(printf 'lock\nshutdown\nreboot\nsuspend\n' | dmenu)"
 
+[ "$choice" = "lock" ] && { slock & systemctl suspend ; }
 [ "$choice" = "shutdown" ] && systemctl poweroff
 [ "$choice" = "reboot" ] && systemctl reboot
 [ "$choice" = "suspend" ] && systemctl suspend

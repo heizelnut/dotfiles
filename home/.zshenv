@@ -4,7 +4,7 @@ export BROWSER='/usr/bin/chromium'
 export TERMINAL='/usr/local/bin/st'
 
 # handy variables for scripts
-export SL_FONT='Iosevka Nerd Font Mono:size=12:style=Oblique'
+export SL_FONT='Iosevka Nerd Font Mono:size=12'
 
 export LC_ALL=en_US.UTF-8
 
@@ -30,7 +30,7 @@ alias gneix="$TERMINAL -t rss -e neix"
 alias grtv="$TERMINAL -t reddit -e rtv"
 
 # serve static websites on localhost
-alias serve="python -m http.server 8080"
+alias serve="python -m http.server 8080 2> /dev/null > /dev/null &"
 
 # personal java build system
 alias t="./tom"
@@ -47,7 +47,7 @@ export GPG_TTY="$(tty)"
 export WINEPREFIX=~/wine
 
 # wallpaper settings
-export WALLPAPER=~/art/sunset-landscape.png
+export WALLPAPER=~/art/glider.png
 export WALLPAPER_MODE=zoom
 
 # hsts settings

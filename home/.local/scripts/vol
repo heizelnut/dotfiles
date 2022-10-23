@@ -28,3 +28,5 @@ dunstify --replace=85 -t 500 -h int:value:$level "$icon volume"
 
 # update dwm volume block
 kill -44 $(pidof dwmblocks)
+
+pkill -USR1 statusbar

@@ -23,4 +23,4 @@ set -o emacs
 xdg-user-dirs-update
 
 # start xorg on /dev/tty1
-[ $(tty) = "/dev/tty1" ] && startx
+[ $(tty) = "/dev/tty1" ] && exec startx

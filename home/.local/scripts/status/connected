@@ -9,8 +9,8 @@ ip_wln="$(ip addr show $WLN | grep inet | awk '{ print $2 }')"
 ip_eth=${ip_eth%%/*}
 ip_wln=${ip_wln%%/*}
 
-[ "$ip_wln" != "" ] && out+="wln "
-[ "$ip_eth" != "" ] && out+="eth"
+[ "$ip_wln" != "" ] && out+="wln"
+[ "$ip_eth" != "" ] && { [ "$out" != "" ] && out+=" eth" || out="eth" ; }
 
 [ "$out" = "" ] && out="none"
 

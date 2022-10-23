@@ -23,8 +23,8 @@ location="$(whereis askpass)"
 export SUDO_ASKPASS="${location##* }"
 
 # start compositor
-killall picom
-picom --experimental-backends &
+# killall picom
+# picom --experimental-backends &
 
 # music daemon
 killall mpd-notification
@@ -40,6 +40,9 @@ color 4500 #K
 
 # reload x resources database
 xrdb ~/.Xresources
+
+# lemonbar
+# ./bodge/statusbar | lemonbar -f $SL_FONT -b -d -n bar &
 
 # dwm
 exec dwm

@@ -94,3 +94,7 @@ super + shift z
 # shutdown menu
 super + Escape
 	shutmenu
+
+# dock display options
+F8
+	dock

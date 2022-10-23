@@ -1,18 +1,18 @@
 #!/bin/sh
 
-# dependencies
-require xrandr || exit 1
+require dmenu xrandr || exit
 
-internal=eDP1
-external1=DP1
-external2=HDMI1
+set -x
 
-connected1=$(xrandr | grep "$external1 disconnected")
-connected2=$(xrandr | grep "$external2 disconnected")
+main=eDP1
+external=HDMI1
+defaultMode=1366x768
+secondGuess=1280x720
 
-# workstation mode
-[ "$connected1" = '' ] && [ "$connected2" = '' ] && both='yes'
+is_connected=$(xrandr | grep "$external connected")
+[ "$is_connected" = "" ] && xrandr --output $main --mode $defaultMode --output $external --off && exit
 
-[ "$both" = 'yes' ] && arandr-layout.sh && exit
+choice=$(printf 'mirror\nprimary' | dmenu -p 'mode: ')
 
-[ "$both" = '' ] && xrandr --output $external1 --off && xrandr --output $external2 --off
+[ "$choice" = "mirror" ] && xrandr --output $main --mode $defaultMode && xrandr --output $external --mode $defaultMode --same-as $main || xrandr --output $external --mode $secondGuess --same-as $main
+[ "$choice" = "primary" ] && xrandr --output $main --off --output $external --mode $defaultMode
