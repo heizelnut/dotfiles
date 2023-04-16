@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require mpv || exit 1
-
-mpv --osc=no --ytdl-format=720p https://twitch.tv/$1

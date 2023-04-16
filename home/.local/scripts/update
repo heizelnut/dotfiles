@@ -3,4 +3,6 @@
 # dependencies
 require yay || exit 1
 
+pacman -Qu
+
 yay -Syu

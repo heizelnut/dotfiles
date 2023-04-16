@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require redshift || exit 1
-
-[ "$1" = "" ] && redshift -x && exit
-
-redshift -P -O $1

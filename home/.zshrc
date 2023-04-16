@@ -22,5 +22,5 @@ set -o emacs
 # update the standard user dirs
 xdg-user-dirs-update
 
-# start xorg on /dev/tty1
-[ $(tty) = "/dev/tty1" ] && exec startx
+# start gui on /dev/tty1
+[ $(tty) = "/dev/tty1" ] && exec Hyprland

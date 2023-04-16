@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require pacman || exit 1
-
-pacman -Qu | grep -Fcv '[ignored]'

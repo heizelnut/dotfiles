@@ -1,6 +1,7 @@
 [user]
-	email = upbeatshaw@protonmail.com
+	email = git@heiz.cc
 	name = heizelnut
-	signingkey = 8CA4EA506FEF4CB4
 [init]
 	defaultBranch = master
+[core]
+	autocrlf = input

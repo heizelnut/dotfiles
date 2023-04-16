@@ -1,0 +1,29 @@
+- shift, printscr : screenshot
+- printscr : screenshot -f
+
+- ctrl, printscr : screenrec
+- ctrl, shift, printscr : screenrec -s
+
+- volumedown : vol down
+- volumeup : vol up
+- mute : vol mute
+
+- brightnessup : lum up
+- brightnessdown : lum down
+
+- leftctrl, comma : emoji
+
+- leftmeta, minus : dunstctl close
+
+- playpause : playerctl play-pause
+- previoussong : playerctl previous
+- nextsong : playerctl next
+
+- shift, volumeup : playerctl volume 0.05+
+- shift, volumedown : playerctl volume 0.05-
+
+- ctrl, f8 : networkmanager_dmenu -l 30
+- ctrl, f10 : $TERMINAL -e ncmpcpp
+- ctrl, f12 : $BROWSER
+
+- leftmeta, esc : shutmenu

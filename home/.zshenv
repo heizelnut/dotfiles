@@ -1,7 +1,7 @@
 # default apps
 export EDITOR='/bin/nvim' 
 export BROWSER='/usr/bin/chromium'
-export TERMINAL='/usr/local/bin/st'
+export TERMINAL='/usr/bin/foot'
 
 # handy variables for scripts
 export SL_FONT='Iosevka Nerd Font Mono:size=12'
@@ -16,8 +16,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # make alacritty monitor-agnostic
 export WINIT_X11_SCALE_FACTOR=1
+export WLR_NO_HARDWARE_CURSORS=1
 
 # xdg standard directories
+export XDG_RUNTIME_DIR="/run/user/$UID"
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
@@ -47,7 +49,7 @@ export GPG_TTY="$(tty)"
 export WINEPREFIX=~/wine
 
 # wallpaper settings
-export WALLPAPER=~/art/glider.png
+export WALLPAPER=~/art/mint-landscape.png
 export WALLPAPER_MODE=zoom
 
 # hsts settings

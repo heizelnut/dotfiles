@@ -1,32 +1,21 @@
 #!/bin/sh
 
-# dependencies
-require pactl dwmblocks sb || exit 1
-
-# Sink ID
-sink=$(pactl get-default-sink)
-
 # interval
 delta=${2:-5}
 
 # speaker volume
-[ "$1" = "up" ] && echo $delta | xargs -I{} pactl set-sink-volume $sink +{}%
-[ "$1" = "down" ] && echo $delta | xargs -I{} pactl set-sink-volume $sink -{}%
+[ "$1" = "up" ] && echo $delta | xargs -I{} pamixer -i {}
+[ "$1" = "down" ] && echo $delta | xargs -I{} pamixer -d {}
 
 # speaker mute
-[ "$1" = "mute" ] && pactl set-sink-mute $sink toggle
+[ "$1" = "mute" ] && pamixer -t
 
 # set volume level
-[ "$1" = "set" ] && pactl set-sink-volume "$sink" $2%
+[ "$1" = "set" ] && pactl --set-volume $2%
 
-level="$(sb volume -v)"
-mute="$(sb volume -m)"
+level="$(pamixer --get-volume)"
+mute="$(pamixer --get-mute)"
 
 icon="🔇"
-[ "$mute" = "no" ] && icon="🔉"
+[ "$mute" = "false" ] && icon="🔉"
 dunstify --replace=85 -t 500 -h int:value:$level "$icon volume"
-
-# update dwm volume block
-kill -44 $(pidof dwmblocks)
-
-pkill -USR1 statusbar

@@ -1,0 +1,40 @@
+{
+    "layer": "top",
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["pulseaudio", "network", "battery", "battery#bat2", "clock", "custom/pacman"],
+	"pulseaudio": {
+		"format": "vol: {volume}%",
+		"format-bluetooth": "bt {volume}%",
+		"format-muted": "vol {volume}% [M]",
+		"scroll-step": 1,
+		"on-click": "$TERMINAL -e pulsemixer"
+	},
+	"custom/pacman": {
+		"format": "({})",
+		"interval": 20,
+		"exec": "pacman -Qu | grep -Fcv '[ignored]'",
+		"exec-if": "pacman -Qu",
+		"on-click": "$TERMINAL -T Updater -e update"
+	},
+	"hyprland/window": {
+		"max-length": 70
+	},
+	"network": {
+		"interface": "wlan0",
+		"format": "{ipaddr}",
+		"format-disconnected": "offline"
+	},
+	"battery": {
+		"bat": "BAT0",
+        "format": "bat0: {capacity}%"
+	},
+	"battery#bat2": {
+		"bat": "BAT1",
+        "format": "bat1: {capacity}%"
+	},
+	"clock": {
+		"format": "{:%a %d %b %H:%M}"
+	}
+}
+

@@ -1,0 +1,44 @@
+#!/bin/sh
+
+PREFIX_INDICATOR='#{?client_prefix,#[reverse] PREFIX #[noreverse],}'
+
+# not in tty mode, status bar should be empty
+[ "$1" = "pts" ] && printf ' %s' $PREFIX_INDICATOR && exit
+
+getip() {
+	row="$(ip -br addr | grep wlan | grep UP)"
+	[ "$row" = "" ] && printf "%s" "offline"
+	printf "%s" "$row" | awk '{print $3}'
+}
+
+newpackages() {
+	packages="$(pacman -Qu)"
+	[ "$packages" = "" ] && exit
+	printf "(%s)" "$(echo -e "$packages" | wc -l)"
+}
+ 
+battery() {
+	getIcon() {
+		value="$(cat /sys/class/power_supply/$1/capacity)"
+		state="$(cat /sys/class/power_supply/$1/status)"
+		[ "$value" = "" ] && printf "none" && exit
+		danger="$(expr \( $value \) \<= 8)"
+		fmt="%s"
+		[ $danger = 1 ] && [ "$state" != "Charging" ] && {
+			fmt="#[bg=red,fg=white]%s#[bg=lightgreen,fg=black]"
+		}
+		[ "$state" = "Charging" ] && printf "$fmt" "$value%+"
+		[ "$state" = "Not charging" ] || [ "$state" = "Full" ] && printf "$fmt" "$value%"
+		[ "$state" = "Discharging" ] && printf "$fmt" "$value%-"
+	}
+
+	printf "B0:%s B1:%s" "$(getIcon BAT0)" "$(getIcon BAT1)"
+}
+
+volume() {
+	fmt='%s%%'
+	[ "$(pamixer --get-mute)" = 'true' ] && fmt='#[bg=yellow]%s%%#[bg=lightgreen]'
+	printf $fmt "$(pamixer --get-volume)"
+}
+
+printf ' %s %s' $PREFIX_INDICATOR "vol:$(volume)  $(battery)  $(getip)  $(date +"%a %d %b %H:%M") $(newpackages)"

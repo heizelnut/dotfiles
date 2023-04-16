@@ -1,10 +1,10 @@
-dotfiles [X11]
-==============
+dotfiles [Wayland]
+==================
 to use them, see the Makefile
 
 what's on there?
- + .xinitrc config to start all the daemons and dwm
+ + Hyprland config and startup scripts (waysetup.sh)
  + .zshrc config with some environment variables (.zshenv) and PS1 prompt
- + scripts with eventually some assets (.local/assets) for my status bar
+ + scripts with eventually some assets (.local/assets)
  + .config files for all the other stuff
  + various cronjobs

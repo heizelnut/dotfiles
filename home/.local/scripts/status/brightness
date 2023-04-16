@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require xbacklight || exit 1
-
-value="$(xbacklight)"
-
-[ "$1" = "-v" ] && echo $value || echo "${value%%.*}%"

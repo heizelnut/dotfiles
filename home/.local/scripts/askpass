@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require xargs dmenu || exit 1
-
-env printf "\uf023" | xargs -I {} dmenu -P -p "{} Password:" -fn "$SL_FONT"
