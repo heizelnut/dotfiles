@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# dependencies
-require mpv || exit 1
-
-# set camera device
-camera='/dev/video0'
-
-mpv --osc=no --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg $@ av://v4l2:$camera

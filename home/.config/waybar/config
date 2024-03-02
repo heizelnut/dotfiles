@@ -1,14 +1,15 @@
 {
     "layer": "top",
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "network", "battery", "battery#bat2", "clock", "custom/pacman"],
 	"pulseaudio": {
-		"format": "vol: {volume}%",
-		"format-bluetooth": "bt {volume}%",
+		"format": "vol {volume}%",
+		"format-bluetooth": "blt {volume}%",
 		"format-muted": "vol {volume}% [M]",
 		"scroll-step": 1,
-		"on-click": "$TERMINAL -e pulsemixer"
+		"on-click": "$TERMINAL -e pulsemixer",
+		"on-click-bluetooth": "blueman"
 	},
 	"custom/pacman": {
 		"format": "({})",
@@ -27,11 +28,13 @@
 	},
 	"battery": {
 		"bat": "BAT0",
-        "format": "bat0: {capacity}%"
+        "format": "bat0 {capacity}%",
+		"states": { "warning": 15, "critical": 10 }
 	},
 	"battery#bat2": {
 		"bat": "BAT1",
-        "format": "bat1: {capacity}%"
+        "format": "bat1 {capacity}%",
+		"states": { "warning": 15, "critical": 10 }
 	},
 	"clock": {
 		"format": "{:%a %d %b %H:%M}"

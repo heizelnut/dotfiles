@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pacman -Qu
+
+yay -Syu

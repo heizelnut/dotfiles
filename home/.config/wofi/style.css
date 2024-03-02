@@ -1,5 +1,5 @@
 window {
-	font-family: Iosevka Nerd Font Mono;
+	font-family: Iosevka Term Slab;
 	font-size: 1.1rem;
 }
 
@@ -7,7 +7,7 @@ window {
 
 #input:focus { box-shadow: inset 0px 0px 0px 2px #318c59; }
 
-window, #input { color: white; background-color: black; }
+window, #input { color: white; background-color: #000000; }
 
 window { box-shadow: 0px 5px 5px black; }
 

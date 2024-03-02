@@ -1,7 +1,7 @@
 #!/bin/sh
 
 takeScreen() {
-	grim -g "$(slurp)" - | tee ~/pics/screenshot.png | wl-copy && notify-send "📷 Picture saved!"
+	grim -g "$(slurp -w 0)" - | tee ~/pics/screenshot.png | wl-copy && notify-send "📷 Picture saved!"
 }
 
 takeWholeScreen() {

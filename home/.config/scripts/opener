@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# dependencies
-require xdg-open || exit 1
-
 mime="$(file --mime-type -b $1)"
 case $mime in
 	audio/*)

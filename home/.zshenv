@@ -38,7 +38,7 @@ alias serve="python -m http.server 8080 2> /dev/null > /dev/null &"
 alias t="./tom"
 
 # path
-PATH=$PATH:~/.local/scripts # personal scripts
+PATH=$PATH:~/.config/scripts # personal scripts
 PATH=$PATH:~/.local/bin # installed binaries
 PATH=$PATH:~/.cargo/bin
 
@@ -49,8 +49,7 @@ export GPG_TTY="$(tty)"
 export WINEPREFIX=~/wine
 
 # wallpaper settings
-export WALLPAPER=~/art/mint-landscape.png
-export WALLPAPER_MODE=zoom
+export WALLPAPER=~/pics/wallpapers/duck-landscape.gif
 
 # hsts settings
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
@@ -59,6 +58,9 @@ export WGET="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # tput compatibility
 export TERMINFO=/usr/lib/terminfo
+
+# secret env variables
+source ~/.secret.env
 
 # really short commands I type very often
 alias s='sudo'
@@ -69,5 +71,12 @@ alias cm='compiler'
 alias o='opener'
 alias ls='ls --color'
 alias la='ls -la'
+
+# go back to root of current git repo
+gr() {
+	root="$(git rev-parse --show-toplevel)"
+	[ "$root" = "" ] || cd "$root"
+}
+alias ...=gr
 
 alias lmms='lmms -c ~/.config/lmms/.lmmsrc.xml'

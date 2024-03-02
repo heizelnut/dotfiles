@@ -1,7 +1,0 @@
-#!/bin/sh
-
-choice="$(printf 'lock\nshutdown\nreboot' | dmenu)"
-
-[ "$choice" = "lock" ] && waylock -init-color 0x000000 -fork-on-lock && systemctl suspend
-[ "$choice" = "reboot" ] && systemctl reboot
-[ "$choice" = "shutdown" ] && systemctl poweroff

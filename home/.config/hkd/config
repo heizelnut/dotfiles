@@ -13,8 +13,6 @@
 
 - leftctrl, comma : emoji
 
-- leftmeta, minus : dunstctl close
-
 - playpause : playerctl play-pause
 - previoussong : playerctl previous
 - nextsong : playerctl next
@@ -24,6 +22,15 @@
 
 - ctrl, f8 : networkmanager_dmenu -l 30
 - ctrl, f10 : $TERMINAL -e ncmpcpp
+- ctrl, f11 : $TERMINAL -e news
 - ctrl, f12 : $BROWSER
 
+- rightalt, f10 : playerctl play-pause
+- rightalt, f11 : playerctl previous
+- rightalt, f12 : playerctl next
+
 - leftmeta, esc : shutmenu
+- leftmeta, minus : dunstctl close
+- leftmeta, space : wofi --show drun
+- leftmeta, l : lock 
+
